@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Inicio{% endblock %} {% block content
+%}
+<h1 align="center">Hola jose Antonio este es lo que debes</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Añadir Otro producto</button>
+  </div>
+</form>
+<div align="center">
+<button  class="btn btn-success"><a href="../static/jose.pdf" download="Reporte">Descargar Archivo</a></button>
+<button onclick="location.href='https://www.claroshop.com'"  class="btn btn-danger">Ir a claro shop</button>
+</div>  
+{% endblock %}
